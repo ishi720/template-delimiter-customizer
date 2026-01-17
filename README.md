@@ -2,7 +2,7 @@
 
 設定でデリミタをカスタマイズできるテンプレートエンジン用VS Code拡張機能です。
 
-現在対応: **Smarty**（Blade等は将来追加予定）
+現在対応: **Smarty**
 
 ## 機能
 
@@ -20,8 +20,6 @@
    - **Windows**: `%USERPROFILE%\.vscode\extensions\template-delimiter-customizer`
    - **macOS/Linux**: `~/.vscode/extensions/template-delimiter-customizer`
 3. VS Codeを再起動
-
----
 
 ## Smarty
 
@@ -119,8 +117,6 @@
 {assign var="total" value=$price * $quantity}
 ```
 
----
-
 ## トラブルシューティング
 
 ### ハイライトが適用されない
@@ -132,8 +128,6 @@
 1. settings.jsonの構文エラーがないか確認
 2. コマンドパレットから「Smarty: Apply Custom Delimiters」を実行
 3. 「Reload Now」をクリックしてウィンドウをリロード
-
----
 
 ## カスタムハイライト色
 
@@ -161,11 +155,3 @@
   }
 }
 ```
-
----
-
-## 今後の予定
-
-- Blade対応
-- Twig対応
-- その他テンプレートエンジン
