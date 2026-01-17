@@ -1,0 +1,71 @@
+{
+  "name": "template-delimiter-customizer",
+  "displayName": "Template Delimiter Customizer",
+  "description": "Template support with configurable delimiters (Smarty, Blade, etc.)",
+  "version": "1.0.0",
+  "publisher": "ishi720",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:smarty-custom",
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "smarty-custom",
+        "aliases": [
+          "Smarty Custom",
+          "smarty-custom"
+        ],
+        "extensions": [
+          ".tpl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "smarty-custom",
+        "scopeName": "text.html.smarty-custom",
+        "path": "./syntaxes/smarty.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Smarty Custom Delimiter",
+      "properties": {
+        "smartyCustom.leftDelimiter": {
+          "type": "string",
+          "default": "{",
+          "description": "Left delimiter for Smarty tags"
+        },
+        "smartyCustom.rightDelimiter": {
+          "type": "string",
+          "default": "}",
+          "description": "Right delimiter for Smarty tags"
+        },
+        "smartyCustom.commentStart": {
+          "type": "string",
+          "default": "{*",
+          "description": "Comment start delimiter"
+        },
+        "smartyCustom.commentEnd": {
+          "type": "string",
+          "default": "*}",
+          "description": "Comment end delimiter"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "smartyCustom.applyDelimiters",
+        "title": "Smarty: Apply Custom Delimiters"
+      }
+    ]
+  }
+}
