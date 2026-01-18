@@ -6,6 +6,7 @@ const path = require('path');
  * 正規表現用にエスケープ
  */
 function escapeRegex(str) {
+    if (!str) return '';
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
@@ -14,11 +15,13 @@ function escapeRegex(str) {
  */
 function getDelimiters() {
     const config = vscode.workspace.getConfiguration('smartyCustom');
+    const left = config.get('leftDelimiter') || '{';
+    const right = config.get('rightDelimiter') || '}';
     return {
-        left: config.get('leftDelimiter', '{'),
-        right: config.get('rightDelimiter', '}'),
-        commentStart: config.get('commentStart', '{*'),
-        commentEnd: config.get('commentEnd', '*}')
+        left: left,
+        right: right,
+        commentStart: left + '*',
+        commentEnd: '*' + right
     };
 }
 
